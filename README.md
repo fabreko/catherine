@@ -1,4 +1,4 @@
 datawarehouse
 =============
 
-Projeto final da disciplina Data Warehouse
+Projeto final da disciplina Data Warehouse.
