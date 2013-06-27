@@ -1,0 +1,97 @@
+\documentclass[a4paper]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{makeidx}
+\usepackage{indentfirst}
+
+\usepackage{mathpazo}
+\linespread{1.05} 
+
+\title{Projeto Final de Data Warehouse} 
+\author{Augusto Fredigo Hack \and Fabricio Bez \and Luis Felipe Nunes \and Matheus Hoffmann Silva}
+
+\pagestyle{fancy}
+\rhead{\thepage}
+\lhead{}
+\cfoot{\footnotesize Florianópolis, 26 de julho de 2013.}
+\chead{\footnotesize Universidade Federal de Santa Catarina}
+\renewcommand{\footrulewidth}{0.0pt}
+\renewcommand{\headrulewidth}{0.0pt}
+\parindent 15pt
+\voffset 5pt
+\headsep 0.8in
+\textheight 592pt
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\begin{document}
+
+	\begin{titlepage}
+		\begin{center}
+			{\large Universidade Federal de Santa Catarina}\\
+			\vspace*{\fill} \begin{figure}[h!] \centering \includegraphics[width=0.15\textwidth]{ufsc} \end{figure} \vskip 20pt
+			{\Huge Projeto Final}\\	
+			{\Large Data Warehouse --- INE5643}
+			\vspace*{\fill}
+
+			Augusto Fredigo Hack\\
+			Fabricio Bez\\
+			Luis Felipe Nunes\\
+			Matheus Hoffmann Silva\\
+			\vskip 45pt
+			Florianópolis, 26 de julho de 2013
+		\end{center}
+	\end{titlepage}
+
+	\newpage
+	
+	\tableofcontents
+
+	\newpage
+
+	\section{Resumo}
+	\indent 
+
+	\section{Introdução}
+	\indent As informações coletadas anualmente pela Universidade Federal de Santa Catarina com as inscrições e resultados de seu vestibular proporcionam uma ampla base de dados. Esta base contém informações sobre todos os candidatos que prestaram vestibular, tanto dados sócio-econômicos (provenientes do questionário sócio-econômico aplicado no momento da insrição do vestibular) e dados como endereço, data de nascimento do candidato, quanto resultados das provas.\\
+	\indent Este trabalho procura utilizar estes dados para analizar a situação das cidades do Estado de Santa Catarina quanto à média de aprovações no vestibular, a fim de identificar as regiões com menor média de aprovação. Estas regiões podem ser o foco de atuação de empresas que vendem Cursos Preparatórios para o vestibular, visto a defasagem da região, que podem ser um bom nicho de negócio.\\
+	\indent Para enriquecer a base de dados já existente, será usado um levantamento de dados estatístico-educacionais disponibilizado pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). Desse levantamento geral, serão utilizados os dados referentes às instituições de ensino por cidade de Santa Catarina. Estes dados serão úteis para saber onde há regiões onde os estudantes não prestaram vestibular para a UFSC, além de ter dados sobre quantos estudantes se formam e quantos efetivamente prestam vestibular.
+
+	\section{Materiais}
+	\indent Os dados de candidatos que prestaram vestibular foram disponibilizados pela Comissão Permanente do Vestibular (COPERVE), que é a responsável por realizar o concurso vestibular para ingresso na UFSC. Para preservar a identidade e zelar pela privacidade dos indivíduos cujas informações estão presentes no banco de dados, não há meios de identificação presentes no banco, como nome, registro de identidade ou carteira de pessoa física.\\
+	\indent No caso deste trabalho, serão utilizados os dados coletados dos vestibulares da UFSC nos anos de 2007 a 2011. Estes dados estão disponíveis em formato .sql, que é um \emph{dump} do banco de dados \textsc{MySQL}.\\
+	\indent Além do Banco de Dados, está disponível o modelo Entidade Relacionamento e uma documentação on-line com mais detalhes do banco, que facilitam o entendimento do mesmo.
+
+	\section{Métodos}
+	\indent 
+
+	\section{Metodologia}
+	\section{Resultados}
+	\section{Conclusão e Trabalhos Futuros}
+	\section{Bibliografia}
+
+	\newpage
+
+	\section{Especificação -- Diagramas}	
+	\begin{figure}[h!]
+		\centering
+		%\includegraphics[width=1\textwidth]{../../diagrams/casos_de_uso_1}
+		\footnotesize{\vskip 10pt Diagrama gerado utilizando a ferramenta \textit{gliffy.com}.}
+	\end{figure}
+
+	\newpage
+
+	\section{Conclusão}
+	\indent Como resultado do trabalho apresenta-se um sistema multi-plataforma, baseado em cliente e servidor, que serve como base para produzir um sistema que auxilie no gerenciamento de finanças pessoais.
+
+\end{document}
+
