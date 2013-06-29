@@ -4,6 +4,21 @@
 \contentsline {section}{\numberline {3}Materiais}{2}
 \contentsline {section}{\numberline {4}M\'etodos}{2}
 \contentsline {section}{\numberline {5}Metodologia}{3}
+\contentsline {subsection}{\numberline {5.1}Escopo}{3}
+\contentsline {subsection}{\numberline {5.2}Justificativa}{3}
+\contentsline {subsection}{\numberline {5.3}Exclus\~oes}{3}
+\contentsline {subsection}{\numberline {5.4}Riscos}{3}
+\contentsline {subsection}{\numberline {5.5}Fataores Cr\IeC {\'\i }ticos de Sucesso}{3}
+\contentsline {subsection}{\numberline {5.6}Defini\c c\~ao dos Requisitos}{3}
+\contentsline {subsection}{\numberline {5.7}Modelagem Dimensional}{3}
+\contentsline {subsubsection}{\numberline {5.7.1}Defini\c c\~ao do Processo a ser Modelado}{3}
+\contentsline {subsubsection}{\numberline {5.7.2}Defini\c c\~ao da Granularidade}{3}
+\contentsline {subsubsection}{\numberline {5.7.3}Defini\c c\~ao das Dimens\~oes}{3}
+\contentsline {subsubsection}{\numberline {5.7.4}Defini\c c\~ao dos Fatos}{3}
+\contentsline {subsection}{\numberline {5.8}Projeto F\IeC {\'\i }sico}{3}
+\contentsline {subsection}{\numberline {5.9}Projeto da \'Area de Transi\c c\~ao}{3}
+\contentsline {subsubsection}{\numberline {5.9.1}Prepara\c c\~ao da Base de Dados}{3}
+\contentsline {subsubsection}{\numberline {5.9.2}\'Area de Transi\c c\~ao}{3}
 \contentsline {section}{\numberline {6}Resultados}{3}
 \contentsline {section}{\numberline {7}Conclus\~ao e Trabalhos Futuros}{3}
 \contentsline {section}{\numberline {8}Bibliografia}{3}
