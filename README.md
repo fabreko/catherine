@@ -1,4 +1,4 @@
-datawarehouse
+Catherine
 =============
 
 Projeto final da disciplina Data Warehouse.

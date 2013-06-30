@@ -1,21 +1,11 @@
-Dimensoes:
-
-- Tempo
-  : ano, mes, dia
-- Local (granularidade cidade)
-  : cidade
-  : nome estado, uf
-- Curso (nome do curso oferecido)
-  : nome, nome centro, sigla centro
-
-Fatos:
+Dimensoes: - Tempo : ano, mes, dia - Local (granularidade cidade) : cidade : nome estado, uf - Curso (nome do curso oferecido) : nome, nome centro, sigla centro Fatos:
 
 - Prova (representa um candidato)
   : curso, tempo, local [FK]
   : status = aprovado, nao aprovado
   : posicao_opcao_1, posicao_opcao_1a, posicao_opcao_2
   : lingua estrangeira
-  : nota
+  : acertos_total
   : acertos (biologia, geografia, matematica, lingua, portugues, fisica, historia, quimica)
   : notas (redacao)
   : frequentou_prevestibular (FREQÜENTOU OU FREQÜENTA CURSO PRÉ-VESTIBULAR)
