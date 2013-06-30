@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  30 JUN 2013 16:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  30 JUN 2013 18:15
 entering extended mode
  %&-line parsing enabled.
 **catherine.tex
@@ -242,7 +242,7 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 [1]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 79.
- [2] [3] <../db/catherine.png, id=18, 807.015pt x 778.91pt>
+ [2] [3] <../db/catherine.png, id=18, 807.015pt x 801.99625pt>
 File: ../db/catherine.png Graphic file (type png)
 
 <use ../db/catherine.png> [4 <../db/catherine.png (PNG copy)>]
@@ -268,7 +268,7 @@ Here is how much of TeX's memory you used:
 texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fon
 ts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/pala
 tino/uplri8a.pfb>
-Output written on catherine.pdf (6 pages, 379428 bytes).
+Output written on catherine.pdf (6 pages, 369633 bytes).
 PDF statistics:
  40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

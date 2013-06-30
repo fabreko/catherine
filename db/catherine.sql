@@ -12,7 +12,7 @@ USE `catherine` ;
 DROP TABLE IF EXISTS `catherine`.`dim_tempo` ;
 
 CREATE  TABLE IF NOT EXISTS `catherine`.`dim_tempo` (
-  `dim_tempo_id` INT NOT NULL ,
+  `dim_tempo_id` INT NOT NULL AUTO_INCREMENT ,
   `ano` INT(11) NULL ,
   `mes` INT(11) NULL ,
   `dia` INT(11) NULL ,
@@ -29,7 +29,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `catherine`.`dim_local` ;
 
 CREATE  TABLE IF NOT EXISTS `catherine`.`dim_local` (
-  `dim_local_id` INT NOT NULL ,
+  `dim_local_id` INT NOT NULL AUTO_INCREMENT ,
   `cidade` VARCHAR(40) NULL ,
   `nome_estado` VARCHAR(40) NULL ,
   `uf` CHAR(2) NULL ,
@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `catherine`.`dim_curso` ;
 
 CREATE  TABLE IF NOT EXISTS `catherine`.`dim_curso` (
-  `dim_curso_id` INT NOT NULL ,
+  `dim_curso_id` INT NOT NULL AUTO_INCREMENT ,
   `nome_curso` VARCHAR(45) NULL ,
   `nome_centro` VARCHAR(45) NULL ,
   `sigla_centro` CHAR(5) NULL ,
@@ -57,7 +57,6 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `catherine`.`fato_prova` ;
 
 CREATE  TABLE IF NOT EXISTS `catherine`.`fato_prova` (
-  `fato_prova_id` INT NOT NULL ,
   `dim_curso_id` INT NOT NULL ,
   `dim_local_id` INT NOT NULL ,
   `dim_tempo_id` INT NOT NULL ,
@@ -85,7 +84,7 @@ CREATE  TABLE IF NOT EXISTS `catherine`.`fato_prova` (
   `ocupacao_responsavel` VARCHAR(80) NULL ,
   `idade_primeiro_emprego` VARCHAR(80) NULL ,
   `meio_comunicacao` VARCHAR(80) NULL ,
-  PRIMARY KEY (`fato_prova_id`, `dim_curso_id`, `dim_local_id`, `dim_tempo_id`) ,
+  PRIMARY KEY (`dim_curso_id`, `dim_local_id`, `dim_tempo_id`) ,
   INDEX `fk_fato_prova_dim_curso` (`dim_curso_id` ASC) ,
   INDEX `fk_fato_prova_dim_local1` (`dim_local_id` ASC) ,
   INDEX `fk_fato_prova_dim_tempo1` (`dim_tempo_id` ASC) ,
