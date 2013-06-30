@@ -2,9 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `catherine` ;
-CREATE SCHEMA IF NOT EXISTS `catherine` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-USE `catherine` ;
 
 -- -----------------------------------------------------
 -- Table `catherine`.`dim_tempo`
@@ -30,8 +27,8 @@ DROP TABLE IF EXISTS `catherine`.`dim_local` ;
 
 CREATE  TABLE IF NOT EXISTS `catherine`.`dim_local` (
   `dim_local_id` INT NOT NULL ,
-  `cidade` VARCHAR(45) NULL ,
-  `nome_estado` VARCHAR(45) NULL ,
+  `cidade` VARCHAR(40) NULL ,
+  `nome_estado` VARCHAR(40) NULL ,
   `uf` CHAR(2) NULL ,
   PRIMARY KEY (`dim_local_id`) )
 ENGINE = InnoDB;
@@ -66,7 +63,7 @@ CREATE  TABLE IF NOT EXISTS `catherine`.`fato_prova` (
   `posicao_opcao_1a` VARCHAR(45) NULL ,
   `posicao_opcao_2` VARCHAR(45) NULL ,
   `lingua_estrangeira` VARCHAR(45) NULL ,
-  `nota` VARCHAR(45) NULL ,
+  `acertos_total` VARCHAR(45) NULL ,
   `acertos_biologia` VARCHAR(45) NULL ,
   `acertos_geografia` VARCHAR(45) NULL ,
   `acertos_matematica` VARCHAR(45) NULL ,
