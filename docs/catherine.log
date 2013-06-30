@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  28 JUN 2013 20:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  30 JUN 2013 16:54
 entering extended mode
  %&-line parsing enabled.
-**dw.tex
-(./dw.tex
+**catherine.tex
+(./catherine.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
@@ -158,8 +158,8 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 (/usr/share/texmf-texlive/tex/latex/psnfss/mathpazo.sty
 Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
-) (./dw.aux)
-\openout1 = `dw.aux'.
+) (./catherine.aux)
+\openout1 = `catherine.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
@@ -201,7 +201,7 @@ File: ufsc.jpg Graphic file (type jpg)
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ufsc.jpg>]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 57.
- (./dw.toc
+ (./catherine.toc
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 2.
 LaTeX Font Info:    Try loading font information for OT1+ppl on input line 7.
@@ -230,7 +230,7 @@ LaTeX Font Info:    Try loading font information for OT1+zplm on input line 7.
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 ))
 \tf@toc=\write4
-\openout4 = `dw.toc'.
+\openout4 = `catherine.toc'.
 
 
 
@@ -241,23 +241,36 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
 [1]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 78.
- [2] [3] [4] [5] (./dw.aux) ) 
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 79.
+ [2] [3] <../db/catherine.png, id=18, 807.015pt x 778.91pt>
+File: ../db/catherine.png Graphic file (type png)
+
+<use ../db/catherine.png> [4 <../db/catherine.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 106.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omsppl.fd
+File: omsppl.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 106.
+ [5] (./catherine.aux) ) 
 Here is how much of TeX's memory you used:
- 3317 strings out of 493848
- 43456 string characters out of 1152823
+ 3339 strings out of 493848
+ 43918 string characters out of 1152823
  99105 words of memory out of 3000000
- 6534 multiletter control sequences out of 15000+50000
- 27131 words of font info for 51 fonts, out of 3000000 for 9000
+ 6552 multiletter control sequences out of 15000+50000
+ 27828 words of font info for 51 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 32i,10n,43p,556b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.
-enc}</usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/t
-exmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/font
-s/type1/urw/palatino/uplri8a.pfb>
-Output written on dw.pdf (6 pages, 240277 bytes).
+ 32i,10n,43p,563b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}<
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fon
+ts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/pala
+tino/uplri8a.pfb>
+Output written on catherine.pdf (6 pages, 379428 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

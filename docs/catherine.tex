@@ -39,7 +39,7 @@
 		\begin{center}
 			{\large Universidade Federal de Santa Catarina}\\
 			\vspace*{\fill} \begin{figure}[h!] \centering \includegraphics[width=0.15\textwidth]{ufsc} \end{figure} \vskip 20pt
-			{\Huge Projeto Final}\\	
+			{\Huge Projeto Final --- Catherine}\\	
 			{\Large Data Warehouse --- INE5643}
 			\vspace*{\fill}
 
@@ -59,11 +59,11 @@
 	\newpage
 
 	\section{Resumo}
-	\indent (O quê? Como? O que resultou? ¿ Palavras-chave)
+	\indent Projeto Catherine. (O quê? Como? O que resultou? ¿ Palavras-chave)
 
 	\section{Introdução}
 	\indent As informações coletadas anualmente pela Universidade Federal de Santa Catarina com as inscrições e resultados de seu vestibular proporcionam uma ampla base de dados. Esta base contém informações sobre todos os candidatos que prestaram vestibular, tanto dados sócio-econômicos (provenientes do questionário sócio-econômico aplicado no momento da insrição do vestibular) e dados como endereço, data de nascimento do candidato, quanto resultados das provas.\\
-	\indent Este trabalho procura utilizar os dados mencionados acima para analizar a situação das cidades do Estado de Santa Catarina quanto à média de aprovações no vestibular, a fim de identificar as regiões com menor média de aprovação. Estas regiões podem ser o foco de atuação de empresas que vendem Cursos Preparatórios para o vestibular, visto a defasagem da região, que podem ser um bom nicho de negócio.\\
+	\indent O projeto Catherine procura utilizar os dados mencionados acima para analizar a situação das cidades do Estado de Santa Catarina quanto à média de aprovações no vestibular, a fim de identificar as regiões com menor média de aprovação. Estas regiões podem ser o foco de atuação de empresas que vendem Cursos Preparatórios para o vestibular, visto a defasagem da região, que podem ser um bom nicho de negócio.\\
 	\indent Para enriquecer a base de dados já existente, será usado um levantamento de dados estatístico-educacionais disponibilizado pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). Desse levantamento geral, serão utilizados os dados referentes às instituições de ensino por cidade de Santa Catarina. Estes dados serão úteis para saber onde há regiões onde os estudantes não prestaram vestibular para a UFSC, além de ter dados sobre quantos estudantes se formam e quantos efetivamente prestam vestibular.
 
 	\section{Materiais}
@@ -75,11 +75,12 @@
 	\indent (Revisão sobre DW e Data Mart, vislumbrando esta tecnologia como a solução para o problema)
 
 	\section{Metodologia}
+	\indent A metodologia utilizada neste projeto é a proposta por Ralph Kimball (Modelagem de Dimensões).
 	\subsection{Escopo}
-	\indent Utilizar os dados dos vestibulares UFSC de 2008 a 2012, disponiblizados pela Coperve, para analizar a situação das cidades do Estado de Santa Catarina quanto à média de aprovações no vestibular, com o objetivo de identificar as regiões com menor média de aprovação. A identificação destas regiões podem ser úteis, no caso de empresas que vendem Cursos Preparatórios para o vestibular, para investir em novas áreas.\\
+	\indent O projeto Catherine visa utilizar os dados dos vestibulares UFSC de 2008 a 2012, disponiblizados pela Coperve, para analizar a situação das cidades do Estado de Santa Catarina quanto à média de aprovações no vestibular, com o objetivo de identificar as regiões com menor média de aprovação. A identificação destas regiões podem ser úteis, no caso de empresas que vendem Cursos Preparatórios para o vestibular, para investir em novas áreas.\\
 	\indent Além dos dados da Coperve, serão utilizados dados do INEP, que indicam o número de estudantes, das várias fases de ensino, das cidades de Santa Catarina.
 	\subsection{Justificativa}
-	\indent  
+	\indent A criação do Data Warehouse se justifica pela complexidade das \emph{queries} no caso de utilizar um modelo de banco de dados relacional (convencional), além do uso de dados externos ao banco de dados disponibilizados pela Coperve.
 	\subsection{Exclusões}
 	\subsection{Riscos}
 	\subsection{Fataores Críticos de Sucesso}
@@ -87,10 +88,30 @@
 	\subsection{Modelagem Dimensional}
 	\subsubsection{Definição do Processo a ser Modelado}
 	\subsubsection{Definição da Granularidade}
+	\indent Conforme o rítmo anual dos vestibulares da UFSC, foi definido a granularidade de tempo em {\bf anos}. A granularidade de local, é em {\bf cidades}.
 	\subsubsection{Definição das Dimensões}
 	\subsubsection{Definição dos Fatos}
+	\newpage
+	\subsubsection{Modelo}
+	\indent O modelo dimensional é apresentado abaixo:
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../db/catherine}
+		\footnotesize{\vskip 10pt Diagrama gerado utilizando a ferramenta \textsc{MySQL Workbench.}.}
+	\end{figure}
+
 	\subsection{Projeto Físico}
-	\subsection{Projeto da Área de Transição}
+	\indent O projeto físico foi desenvolvido utilizando a ferramenta de gerenciamento de bancos de dados \textsc{MySQL}, onde estão armazenados os dados do \emph{Data Mart}. O modelo dimensional foi gerado com a ferramenta \textsc{MySQL Workbench}. Quanto à padronização do modelo físico, foram adotados os seguintes padrões:
+	\begin{itemize}
+		\item Os nomes das tabelas e campos contém apenas letras minúsculas.
+		\item Tabelas e campos com mais de uma palavra, devem usar \lq\_\rq para dividir as palavras.
+		\item O nome de uma dimenção deve começar com \lq{}dim\_\rq , e o nome de um fato deve começar com \lq{}fato\_\rq.
+	\end{itemize}
+
+	\subsection{Projeto da Área de Transição -- ETL}
+	\indent O projeto da àrea de transição foi realizado utilizando a ferramenta Kettle, da Pentaho. Esta ferramenta utiliza-se dos seguintes conceitos principais: transformations e jobs.\\
+	\indent As transformations são um conjunto de steps que são as atividades relacionadas a integração de dados, como: carregamento de dados de uma tabela, operações com strings, filtros de valores, etc. Na transformation os \emph{steps} são executados em paralelo. Os jobs servem para estabelecer um fluxo na execução das transformations de maneira serial.\\
+	\indent Neste trabalho a geração de cada fato e cada dimensão foi separada em transformations e a ordem de execução das transformations em jobs.
 	\subsubsection{Preparação da Base de Dados}
 	\subsubsection{Área de Transição}
 
@@ -98,19 +119,6 @@
 	\section{Conclusão e Trabalhos Futuros}
 	\section{Bibliografia}
 
-	\newpage
-
-	\section{Especificação -- Diagramas}	
-	\begin{figure}[h!]
-		\centering
-		%\includegraphics[width=1\textwidth]{../../diagrams/casos_de_uso_1}
-		\footnotesize{\vskip 10pt Diagrama gerado utilizando a ferramenta \textit{gliffy.com}.}
-	\end{figure}
-
-	\newpage
-
-	\section{Conclusão}
-	\indent Como resultado do trabalho apresenta-se um sistema multi-plataforma, baseado em cliente e servidor, que serve como base para produzir um sistema que auxilie no gerenciamento de finanças pessoais.
 
 \end{document}
 
