@@ -68,7 +68,32 @@
   <notepads>
   </notepads>
   <connection>
-    <name>local</name>
+    <name>catherine</name>
+    <server>127.0.0.1</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>catherine</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce218cc1fb8f</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>vestibular</name>
     <server>127.0.0.1</server>
     <type>MYSQL</type>
     <access>Native</access>
@@ -93,9 +118,91 @@
     </attributes>
   </connection>
   <order>
-  </order>
+  <hop> <from>v_cidade</from><to>join cidade uf</to><enabled>Y</enabled> </hop>  <hop> <from>v_unidade_federativa</from><to>join cidade uf</to><enabled>Y</enabled> </hop>  <hop> <from>remove coluna extra</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>duplicados</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>dim_local faltantes</to><enabled>Y</enabled> </hop>  <hop> <from>join cidade uf</from><to>remove coluna extra</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>une tuplas bases</to><enabled>Y</enabled> </hop>  <hop> <from>c_dim_local</from><to>une tuplas bases</to><enabled>Y</enabled> </hop>  <hop> <from>une tuplas bases</from><to>Filter rows</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>cidades</name>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>dim_local faltantes</send_true_to>
+<send_false_to>duplicados</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>c_uf</leftvalue>
+   <function>IS NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>c_uf</leftvalue>
+   <function>=</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask/></value>   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>532</xloc>
+      <yloc>37</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>%%java.io.tmpdir%%</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>v_uf</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+      </field>
+      <field>
+        <name>v_estado</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+      </field>
+      <field>
+        <name>v_cidade</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>397</xloc>
+      <yloc>185</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>c_dim_local</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -104,12 +211,14 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>local</connection>
+    <connection>catherine</connection>
     <sql>SELECT
-  id_cidade
-, nome_municipio
-, id_unidade_federativa
-FROM cidade
+  cidade AS c_cidade
+, uf AS c_uf
+, nome_estado AS c_estado
+FROM dim_local
+-- merge join do kettle precisa dos dados ordenados
+ORDER BY c_uf ASC, c_estado ASC, c_cidade ASC
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -118,14 +227,170 @@ FROM cidade
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>115</xloc>
-      <yloc>270</yloc>
+      <xloc>48</xloc>
+      <yloc>37</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table input</name>
+    <name>dim_local faltantes</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>catherine</connection>
+    <schema>catherine</schema>
+    <table>dim_local</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>cidade</column_name>
+          <stream_name>v_cidade</stream_name>
+        </field>
+        <field>
+          <column_name>uf</column_name>
+          <stream_name>v_uf</stream_name>
+        </field>
+        <field>
+          <column_name>nome_estado</column_name>
+          <stream_name>v_estado</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>683</xloc>
+      <yloc>37</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>duplicados</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>531</xloc>
+      <yloc>178</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>join cidade uf</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>RIGHT OUTER</join_type>
+<step1>v_cidade</step1>
+<step2>v_unidade_federativa</step2>
+    <keys_1>
+      <key>vc_uf</key>
+    </keys_1>
+    <keys_2>
+      <key>v_uf</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>162</xloc>
+      <yloc>185</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>remove coluna extra</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>vc_cidade</name>
+        <rename>v_cidade</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>v_uf</name>
+        <rename>v_uf</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>v_estado</name>
+        <rename>v_estado</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>279</xloc>
+      <yloc>185</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>une tuplas bases</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort rows</step1>
+<step2>c_dim_local</step2>
+    <keys_1>
+      <key>v_uf</key>
+      <key>v_estado</key>
+      <key>v_cidade</key>
+    </keys_1>
+    <keys_2>
+      <key>c_uf</key>
+      <key>c_estado</key>
+      <key>c_cidade</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>397</xloc>
+      <yloc>37</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>v_cidade</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -134,8 +399,13 @@ FROM cidade
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection/>
-    <sql>SELECT &lt;values&gt; FROM &lt;table name&gt; WHERE &lt;conditions&gt;</sql>
+    <connection>vestibular</connection>
+    <sql>SELECT
+  nome_municipio AS vc_cidade
+, id_unidade_federativa AS vc_uf
+FROM cidade
+-- merge join do kettle precisa dos dados ordenados
+ORDER BY vc_uf ASC, vc_cidade ASC</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -143,8 +413,38 @@ FROM cidade
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>268</xloc>
-      <yloc>76</yloc>
+      <xloc>49</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>v_unidade_federativa</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>vestibular</connection>
+    <sql>SELECT
+  id_unidade_federativa AS v_uf
+, nome_unidade_federativa AS v_estado
+FROM unidade_federativa
+-- merge join do kettle precisa dos dados ordenados
+ORDER BY v_uf ASC, v_estado ASC</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>48</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
