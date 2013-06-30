@@ -44,8 +44,8 @@ DROP TABLE IF EXISTS `catherine`.`dim_curso` ;
 
 CREATE  TABLE IF NOT EXISTS `catherine`.`dim_curso` (
   `dim_curso_id` INT NOT NULL AUTO_INCREMENT ,
-  `nome_curso` VARCHAR(45) NULL ,
-  `nome_centro` VARCHAR(45) NULL ,
+  `nome_curso` VARCHAR(60) NULL ,
+  `nome_centro` VARCHAR(40) NULL ,
   `sigla_centro` CHAR(5) NULL ,
   PRIMARY KEY (`dim_curso_id`) )
 ENGINE = InnoDB;
