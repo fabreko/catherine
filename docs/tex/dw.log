@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  28 JUN 2013 20:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  30 JUN 2013 16:36
 entering extended mode
  %&-line parsing enabled.
 **dw.tex
@@ -241,23 +241,36 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
 [1]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 78.
- [2] [3] [4] [5] (./dw.aux) ) 
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 79.
+ [2] [3] <../../db/catherine.png, id=18, 807.015pt x 778.91pt>
+File: ../../db/catherine.png Graphic file (type png)
+
+<use ../../db/catherine.png> [4 <../../db/catherine.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 106.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omsppl.fd
+File: omsppl.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 106.
+ [5] (./dw.aux) ) 
 Here is how much of TeX's memory you used:
- 3317 strings out of 493848
- 43456 string characters out of 1152823
+ 3340 strings out of 493848
+ 43865 string characters out of 1152823
  99105 words of memory out of 3000000
- 6534 multiletter control sequences out of 15000+50000
- 27131 words of font info for 51 fonts, out of 3000000 for 9000
+ 6552 multiletter control sequences out of 15000+50000
+ 27828 words of font info for 51 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  32i,10n,43p,556b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.
-enc}</usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/t
-exmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/font
-s/type1/urw/palatino/uplri8a.pfb>
-Output written on dw.pdf (6 pages, 240277 bytes).
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-t
+exlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/type
+1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/up
+lri8a.pfb>
+Output written on dw.pdf (6 pages, 379428 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
