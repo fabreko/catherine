@@ -1,9 +1,22 @@
-Dimensoes: - Tempo : ano, mes, dia - Local (granularidade cidade) : cidade : nome estado, uf - Curso (nome do curso oferecido) : nome, nome centro, sigla centro Fatos:
+Dimensoes:
+
+- Tempo
+  : ano, mes, dia
+  : ano, mes, dia (texto)
+
+- Local (granularidade cidade)
+  : cidade
+  : nome estado, uf
+
+- Curso (nome do curso oferecido)
+  : nome_curso, nome_centro, sigla_centro 
+
+Fatos:
 
 - Prova (representa um candidato)
   : curso, tempo, local [FK]
   : status = aprovado, nao aprovado
-  : posicao_opcao_1, posicao_opcao_1a, posicao_opcao_2
+  : classificacao_geral, posicao_opcao_1, posicao_opcao_1a, posicao_opcao_2
   : lingua estrangeira
   : acertos_total
   : acertos (biologia, geografia, matematica, lingua, portugues, fisica, historia, quimica)
