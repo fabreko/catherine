@@ -85,19 +85,32 @@
 	\subsection{Riscos}
 	\subsection{Fataores Críticos de Sucesso}
 	\subsection{Definição dos Requisitos}
-	\subsection{Modelagem Dimensional}
+	\subsection{Modelagem Dimensional} 
 	\subsubsection{Definição do Processo a ser Modelado}
+	\indent A modelagem estrela vai envolver os dados referentes às provas e resultados, locais de origem dos candidatos, data data dos eventos e censo referente às escolas de Santa Catarina.
 	\subsubsection{Definição da Granularidade}
 	\indent Conforme o rítmo anual dos vestibulares da UFSC, foi definido a granularidade de tempo em {\bf anos}. A granularidade de local, é em {\bf cidades}.
 	\subsubsection{Definição das Dimensões}
+	\indent As dimensões identificadas no modelo estrela foram:
+	\begin{itemize}
+			\item Tempo: contém as indicações de tempo tanto em números quanto em textos, do ano, mês e dia.
+			\item Local: indicação geográfica dos eventos, precisando a cidade e estado (por extenso e UF).
+			\item Curso: O nome do curso, nome e sigla do centro onde é oferecido o curso.
+	\end{itemize}
 	\subsubsection{Definição dos Fatos}
+	\indent Foram criados os seguintes Fatos para o Data Mart do projeto Catherine:
+	\begin{itemize}
+			\item Prova: este fato representa uma prova (na verdade o conjunto das provas do vestibular) realizada por um único candidato. Contém os acertos de todas as matérias e nota da redação, classificação geral e por opção, curso prestado, local de origem do candidato, ano da prova, e ainda as respostas do questionário sócio-econômico, que tem relação com cursos preparatórios.
+			\item Vagas: refere-se às informações de vagas de cada curso. Contém o curso, ano das medidas, número de vagas oferecidas, médias de acertos e notas de redação.
+			\item Censo: contém números referentes à quantidades de estudantes que concluíram o ensino médio, por ano, para cada cidade do país.
+	\end{itemize}
 	\newpage
 	\subsubsection{Modelo}
 	\indent O modelo dimensional é apresentado abaixo:
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\textwidth]{../db/catherine}
-		\footnotesize{\vskip 10pt Diagrama gerado utilizando a ferramenta \textsc{MySQL Workbench.}.}
+		\footnotesize{\vskip 10pt Diagrama gerado utilizando a ferramenta \textsc{MySQL Workbench}.}
 	\end{figure}
 
 	\subsection{Projeto Físico}

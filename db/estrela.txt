@@ -39,6 +39,11 @@ Fatos:
 - Censo
   : tempo, local [FK]
   : estudantes
+  : media_acertos #média de acertos e notas de alunos provenientes deste local
+  : media_provas #média de acertos e notas de alunos provenientes deste local
+  : principal_fonte_candidatos #principal fonte de alunos (fez cursinho ou não)
+  : percentual_aprovacao #percentual ou razão entre canditados que fizeram a prova e candidatos aprovados no vestibular.
+  : principal_classe_social #principal classe social dos candidados provenientes deste local
 
 Informacoes uteis:
 
