@@ -59,6 +59,7 @@
 	\newpage
 
 	\section{Resumo}
+	TODO\\
 	\indent Projeto Catherine. (O quê? Como? O que resultou? ¿ Palavras-chave)
 
 	\section{Introdução}
@@ -72,6 +73,7 @@
 	\indent Além do Banco de Dados, está disponível o modelo Entidade Relacionamento e uma documentação on-line com mais detalhes do banco, que facilitam o entendimento do mesmo.
 
 	\section{Métodos}
+	TODO\\
 	\indent (Revisão sobre DW e Data Mart, vislumbrando esta tecnologia como a solução para o problema)
 
 	\section{Metodologia}
@@ -82,9 +84,18 @@
 	\subsection{Justificativa}
 	\indent A criação do Data Warehouse se justifica pela complexidade das \emph{queries} no caso de utilizar um modelo de banco de dados relacional (convencional), além do uso de dados externos ao banco de dados disponibilizados pela Coperve.
 	\subsection{Exclusões}
+	\indent Não fazem parte do foco do projeto Catherine, ainda que disponíveis nas bases de dados da Coperve:
+	\begin{itemize}
+		\item Dados de candidatos que fizeram a prova como treino.
+		\item Dados de candidatos faltantes.
+		\item Informações de opções (1, 1a ou 2) de cursos de candidatos ou da escolha da língua estrangeira.
+	\end{itemize}
 	\subsection{Riscos}
+	TODO
 	\subsection{Fataores Críticos de Sucesso}
+	TODO
 	\subsection{Definição dos Requisitos}
+	TODO
 	\subsection{Modelagem Dimensional} 
 	\subsubsection{Definição do Processo a ser Modelado}
 	\indent A modelagem estrela vai envolver os dados referentes às provas e resultados, locais de origem dos candidatos, data data dos eventos e censo referente às escolas de Santa Catarina.
@@ -93,16 +104,16 @@
 	\subsubsection{Definição das Dimensões}
 	\indent As dimensões identificadas no modelo estrela foram:
 	\begin{itemize}
-			\item Tempo: contém as indicações de tempo tanto em números quanto em textos, do ano, mês e dia.
-			\item Local: indicação geográfica dos eventos, precisando a cidade e estado (por extenso e UF).
-			\item Curso: O nome do curso, nome e sigla do centro onde é oferecido o curso.
+		\item Tempo: contém as indicações de tempo tanto em números quanto em textos, do ano, mês e dia.
+		\item Local: indicação geográfica dos eventos, precisando a cidade e estado (por extenso e UF).
+		\item Curso: O nome do curso, nome e sigla do centro onde é oferecido o curso.
 	\end{itemize}
 	\subsubsection{Definição dos Fatos}
 	\indent Foram criados os seguintes Fatos para o Data Mart do projeto Catherine:
 	\begin{itemize}
-			\item Prova: este fato representa uma prova (na verdade o conjunto das provas do vestibular) realizada por um único candidato. Contém os acertos de todas as matérias e nota da redação, classificação geral e por opção, curso prestado, local de origem do candidato, ano da prova, e ainda as respostas do questionário sócio-econômico, que tem relação com cursos preparatórios.
-			\item Vagas: refere-se às informações de vagas de cada curso. Contém o curso, ano das medidas, número de vagas oferecidas, médias de acertos e notas de redação.
-			\item Censo: contém números referentes à quantidades de estudantes que concluíram o ensino médio, por ano, para cada cidade do país.
+		\item Censo: contém os principais indicadores do projeto, {\bf por cidade}: média de acertos e notas dos candidatos, percentual de aprovação dos candidatos, se a maioria dos candidatos cursavam algum pré-vestibular, e também a classe social predominanto dos candidatos. Além disso, números referentes à quantidades de estudantes que concluíram o ensino médio, por ano, para cada cidade do país.
+		\item Prova: este fato representa uma prova (na verdade o conjunto das provas do vestibular) realizada por um único candidato. Contém os acertos de todas as matérias e nota da redação, classificação geral e por opção, curso prestado, local de origem do candidato, ano da prova, e ainda as respostas do questionário sócio-econômico, que tem relação com cursos preparatórios.
+		\item Vagas: refere-se às informações de vagas de cada curso. Contém o curso, ano das medidas, número de vagas oferecidas, médias de acertos e notas de redação.
 	\end{itemize}
 	\newpage
 	\subsubsection{Modelo}
@@ -126,12 +137,16 @@
 	\indent As transformations são um conjunto de steps que são as atividades relacionadas a integração de dados, como: carregamento de dados de uma tabela, operações com strings, filtros de valores, etc. Na transformation os \emph{steps} são executados em paralelo. Os jobs servem para estabelecer um fluxo na execução das transformations de maneira serial.\\
 	\indent Neste trabalho a geração de cada fato e cada dimensão foi separada em transformations e a ordem de execução das transformations em jobs.
 	\subsubsection{Preparação da Base de Dados}
+	TODO
 	\subsubsection{Área de Transição}
+	TODO
 
 	\section{Resultados}
+	TODO
 	\section{Conclusão e Trabalhos Futuros}
+	TODO
 	\section{Bibliografia}
-
+	TODO
 
 \end{document}
 

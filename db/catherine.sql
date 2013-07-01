@@ -145,7 +145,11 @@ DROP TABLE IF EXISTS `catherine`.`fato_censo` ;
 CREATE  TABLE IF NOT EXISTS `catherine`.`fato_censo` (
   `dim_local_id` INT NOT NULL ,
   `dim_tempo_id` INT NOT NULL ,
-  `numero_estudantes` VARCHAR(45) NULL ,
+  `media_acertos` DECIMAL(5,2) NULL ,
+  `percentual_aprovacao` DECIMAL(2,2) NULL ,
+  `principal_fonte_candidatos` VARCHAR(45) NULL ,
+  `principal_classe_social` VARCHAR(45) NULL ,
+  `numero_estudantes` INT NULL ,
   PRIMARY KEY (`dim_local_id`, `dim_tempo_id`) ,
   INDEX `fk_fato_censo_dim_tempo1` (`dim_tempo_id` ASC) ,
   CONSTRAINT `fk_fato_censo_dim_local1`
