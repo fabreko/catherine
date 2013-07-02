@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>kettle</name>
+    <name>dim_local</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -119,46 +120,6 @@
   </connection>
   <order>
   <hop> <from>v_cidade</from><to>join cidade uf</to><enabled>Y</enabled> </hop>  <hop> <from>v_unidade_federativa</from><to>join cidade uf</to><enabled>Y</enabled> </hop>  <hop> <from>remove coluna extra</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>filtra duplicados</from><to>duplicados</to><enabled>Y</enabled> </hop>  <hop> <from>filtra duplicados</from><to>dim_local faltantes</to><enabled>Y</enabled> </hop>  <hop> <from>join cidade uf</from><to>remove coluna extra</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>une tuplas bases</to><enabled>Y</enabled> </hop>  <hop> <from>c_dim_local</from><to>une tuplas bases</to><enabled>Y</enabled> </hop>  <hop> <from>une tuplas bases</from><to>filtra duplicados</to><enabled>Y</enabled> </hop>  </order>
-  <step>
-    <name>filtra duplicados</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>dim_local faltantes</send_true_to>
-<send_false_to>duplicados</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>c_uf</leftvalue>
-   <function>IS NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>c_uf</leftvalue>
-   <function>=</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask/></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>532</xloc>
-      <yloc>37</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Sort rows</name>
     <type>SortRows</type>
@@ -295,7 +256,47 @@ ORDER BY c_uf ASC, c_estado ASC, c_cidade ASC
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>531</xloc>
-      <yloc>178</yloc>
+      <yloc>184</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>filtra duplicados</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>dim_local faltantes</send_true_to>
+<send_false_to>duplicados</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>c_uf</leftvalue>
+   <function>IS NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>c_uf</leftvalue>
+   <function>=</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask/></value>   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>532</xloc>
+      <yloc>37</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
