@@ -111,8 +111,7 @@
 	\subsubsection{Definição dos Fatos}
 	\indent Foram criados os seguintes Fatos para o Data Mart do projeto Catherine:
 	\begin{itemize}
-		\item Censo: contém os principais indicadores do projeto, {\bf por cidade}: média de acertos e notas dos candidatos, percentual de aprovação dos candidatos, se a maioria dos candidatos cursavam algum pré-vestibular, e também a classe social predominanto dos candidatos. Além disso, números referentes à quantidades de estudantes que concluíram o ensino médio, por ano, para cada cidade do país.
-		\item Prova: este fato representa uma prova (na verdade o conjunto das provas do vestibular) realizada por um único candidato. Contém os acertos de todas as matérias e nota da redação, classificação geral e por opção, curso prestado, local de origem do candidato, ano da prova, e ainda as respostas do questionário sócio-econômico, que tem relação com cursos preparatórios.
+		\item Censo: contém os principais indicadores do projeto, {\bf por cidade}: média de acertos e notas dos candidatos, percentual de aprovação dos candidatos, se a maioria dos candidatos cursavam algum pré-vestibular, a quantidade de candidatos que cursou pré-vestibular e também a renda familiar bruta média dos candidatos. Além disso, números referentes à quantidades de estudantes que concluíram o ensino médio, por ano, para cada cidade do país.
 		\item Vagas: refere-se às informações de vagas de cada curso. Contém o curso, ano das medidas, número de vagas oferecidas, médias de acertos e notas de redação.
 	\end{itemize}
 	\newpage
@@ -133,11 +132,11 @@
 	\end{itemize}
 
 	\subsection{Projeto da Área de Transição -- ETL}
-	\indent O projeto da àrea de transição foi realizado utilizando a ferramenta Kettle, da Pentaho. Esta ferramenta utiliza-se dos seguintes conceitos principais: transformations e jobs.\\
+	\indent O projeto da àrea de transição foi realizado utilizando a ferramenta Pentaho Data Integration (Kettle). Esta ferramenta utiliza-se dos seguintes conceitos principais: transformations e jobs.\\
 	\indent As transformations são um conjunto de steps que são as atividades relacionadas a integração de dados, como: carregamento de dados de uma tabela, operações com strings, filtros de valores, etc. Na transformation os \emph{steps} são executados em paralelo. Os jobs servem para estabelecer um fluxo na execução das transformations de maneira serial.\\
 	\indent Neste trabalho a geração de cada fato e cada dimensão foi separada em transformations e a ordem de execução das transformations em jobs.
 	\subsubsection{Preparação da Base de Dados}
-	TODO
+	
 	\subsubsection{Área de Transição}
 	TODO
 

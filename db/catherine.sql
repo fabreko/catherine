@@ -52,61 +52,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `catherine`.`fato_prova`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `catherine`.`fato_prova` ;
-
-CREATE  TABLE IF NOT EXISTS `catherine`.`fato_prova` (
-  `dim_curso_id` INT NOT NULL ,
-  `dim_local_id` INT NOT NULL ,
-  `dim_tempo_id` INT NOT NULL ,
-  `status` VARCHAR(45) NULL ,
-  `posicao_geral` INT NULL ,
-  `posicao_opcao_1` INT NULL ,
-  `posicao_opcao_1a` INT NULL ,
-  `posicao_opcao_2` INT NULL ,
-  `lingua_estrangeira` VARCHAR(45) NULL ,
-  `acertos_total` DECIMAL(5,2) NULL ,
-  `acertos_biologia` INT NULL ,
-  `acertos_geografia` INT NULL ,
-  `acertos_matematica` INT NULL ,
-  `acertos_lingua` INT NULL ,
-  `acertos_portugues` INT NULL ,
-  `acertos_fisica` INT NULL ,
-  `acertos_historia` INT NULL ,
-  `acertos_quimica` INT NULL ,
-  `nota_redacao` DECIMAL(5,2) NULL ,
-  `frequentou_prevestibular` VARCHAR(80) NULL ,
-  `motivo_nao_prevestibular` VARCHAR(80) NULL ,
-  `turno_ensino_medio` VARCHAR(80) NULL ,
-  `soma_renda_bruta` VARCHAR(80) NULL ,
-  `principal_responsavel` VARCHAR(80) NULL ,
-  `ocupacao_responsavel` VARCHAR(80) NULL ,
-  `idade_primeiro_emprego` VARCHAR(80) NULL ,
-  `meio_comunicacao` VARCHAR(80) NULL ,
-  PRIMARY KEY (`dim_curso_id`, `dim_local_id`, `dim_tempo_id`) ,
-  INDEX `fk_fato_prova_dim_curso` (`dim_curso_id` ASC) ,
-  INDEX `fk_fato_prova_dim_local1` (`dim_local_id` ASC) ,
-  INDEX `fk_fato_prova_dim_tempo1` (`dim_tempo_id` ASC) ,
-  CONSTRAINT `fk_fato_prova_dim_curso`
-    FOREIGN KEY (`dim_curso_id` )
-    REFERENCES `catherine`.`dim_curso` (`dim_curso_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_fato_prova_dim_local1`
-    FOREIGN KEY (`dim_local_id` )
-    REFERENCES `catherine`.`dim_local` (`dim_local_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_fato_prova_dim_tempo1`
-    FOREIGN KEY (`dim_tempo_id` )
-    REFERENCES `catherine`.`dim_tempo` (`dim_tempo_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `catherine`.`fato_vagas`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `catherine`.`fato_vagas` ;
@@ -147,9 +92,11 @@ CREATE  TABLE IF NOT EXISTS `catherine`.`fato_censo` (
   `dim_tempo_id` INT NOT NULL ,
   `media_acertos` DECIMAL(5,2) NULL ,
   `percentual_aprovacao` DECIMAL(2,2) NULL ,
-  `principal_fonte_candidatos` VARCHAR(45) NULL ,
-  `principal_classe_social` VARCHAR(45) NULL ,
-  `numero_estudantes` INT NULL ,
+  `percentual_estudantes_prevestibular` DECIMAL(2,2) NULL ,
+  `numero_estudantes_prevestibular` INT NULL ,
+  `numero_vestibulandos` INT NULL ,
+  `numero_estudantes_ensino_medio` INT NULL ,
+  `media_renda_bruta` VARCHAR(45) NULL ,
   PRIMARY KEY (`dim_local_id`, `dim_tempo_id`) ,
   INDEX `fk_fato_censo_dim_tempo1` (`dim_tempo_id` ASC) ,
   CONSTRAINT `fk_fato_censo_dim_local1`
