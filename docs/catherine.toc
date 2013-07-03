@@ -18,8 +18,7 @@
 \contentsline {subsubsection}{\numberline {5.7.5}Modelo}{5}
 \contentsline {subsection}{\numberline {5.8}Projeto F\IeC {\'\i }sico}{5}
 \contentsline {subsection}{\numberline {5.9}Projeto da \'Area de Transi\c c\~ao -- ETL}{6}
-\contentsline {subsubsection}{\numberline {5.9.1}Prepara\c c\~ao da Base de Dados}{6}
-\contentsline {subsubsection}{\numberline {5.9.2}\'Area de Transi\c c\~ao}{6}
-\contentsline {section}{\numberline {6}Resultados}{6}
-\contentsline {section}{\numberline {7}Conclus\~ao e Trabalhos Futuros}{6}
-\contentsline {section}{\numberline {8}Bibliografia}{6}
+\contentsline {subsubsection}{\numberline {5.9.1}\'Area de Transi\c c\~ao}{6}
+\contentsline {section}{\numberline {6}Resultados}{7}
+\contentsline {section}{\numberline {7}Conclus\~ao e Trabalhos Futuros}{8}
+\contentsline {section}{\numberline {8}Bibliografia}{8}

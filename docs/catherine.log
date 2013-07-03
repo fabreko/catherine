@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  2 JUL 2013 00:09
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.6.22)  3 JUL 2013 01:57
 entering extended mode
  %&-line parsing enabled.
 **catherine.tex
@@ -131,6 +131,14 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 75.
 (/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
 ))
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count97
+\float@exts=\toks18
+\float@box=\box28
+\@float@everytoks=\toks19
+\@floatcapt=\box29
+)
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen108
@@ -138,16 +146,16 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 )
 (/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks18
-\verbatim@line=\toks19
+\every@verbatim=\toks20
+\verbatim@line=\toks21
 \verbatim@in@stream=\read1
 )
 (/usr/share/texmf-texlive/tex/latex/moreverb/moreverb.sty
 Package: moreverb 2008/06/03 v2.3 `more' verbatim facilities
 \verbatim@out=\write3
-\tab@position=\count97
-\tab@size=\count98
-\listing@line=\count99
+\tab@position=\count98
+\tab@size=\count99
+\listing@line=\count100
 )
 (/usr/share/texmf-texlive/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
@@ -161,37 +169,37 @@ Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)
 ) (./catherine.aux)
 \openout1 = `catherine.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 37.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-\c@lstlisting=\count100
+\c@lstlisting=\count101
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
+\scratchcounter=\count102
 \scratchdimen=\dimen110
-\scratchbox=\box28
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count104
+\scratchbox=\box30
+\nofMPsegments=\count103
+\nofMParguments=\count104
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count105
 \MPscratchDim=\dimen111
-\MPnumerator=\count105
-\everyMPtoPDFconversion=\toks21
+\MPnumerator=\count106
+\everyMPtoPDFconversion=\toks23
 )
 \big@size=\dimen112
  <ufsc.jpg, id=1, 115.632pt x 135.1449pt>
@@ -200,7 +208,7 @@ File: ufsc.jpg Graphic file (type jpg)
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ufsc.jpg>]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 57.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 58.
  (./catherine.toc
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 2.
@@ -241,35 +249,41 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
 [1] [2]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 81.
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 89.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 82.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 90.
  (/usr/share/texmf-texlive/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
  [3] [4]
-<../db/catherine.png, id=22, 760.8425pt x 568.1225pt>
+<../db/catherine.png, id=22, 760.8425pt x 582.175pt>
 File: ../db/catherine.png Graphic file (type png)
-
-<use ../db/catherine.png> [5 <../db/catherine.png (PNG copy)>] [6]
-(./catherine.aux) ) 
+ <use ../db/catherine.png>
+[5 <../db/catherine.png (PNG copy)>]
+<dim_curso.png, id=26, 539.01375pt x 252.945pt>
+File: dim_curso.png Graphic file (type png)
+ <use dim_curso.png>
+<dim_local.png, id=27, 782.925pt x 270.00874pt>
+File: dim_local.png Graphic file (type png)
+ <use dim_local.png> [6 <./dim_curso.png (PNG copy)>] [7 <./dim_local.png (PNG 
+copy)>] [8] (./catherine.aux) ) 
 Here is how much of TeX's memory you used:
- 3339 strings out of 493848
- 43918 string characters out of 1152823
- 99105 words of memory out of 3000000
- 6552 multiletter control sequences out of 15000+50000
- 27828 words of font info for 51 fonts, out of 3000000 for 9000
+ 3406 strings out of 493848
+ 44803 string characters out of 1152823
+ 100476 words of memory out of 3000000
+ 6612 multiletter control sequences out of 15000+50000
+ 29381 words of font info for 53 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 32i,10n,43p,563b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
--texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/
-uplri8a.pfb>
-Output written on catherine.pdf (7 pages, 323731 bytes).
+ 32i,11n,43p,563b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8
+r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texl
+ive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/u
+rw/palatino/uplri8a.pfb>
+Output written on catherine.pdf (9 pages, 395732 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{listings}
 \usepackage{pdflscape}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{moreverb}
@@ -38,7 +39,7 @@
 	\begin{titlepage}
 		\begin{center}
 			{\large Universidade Federal de Santa Catarina}\\
-			\vspace*{\fill} \begin{figure}[h!] \centering \includegraphics[width=0.15\textwidth]{ufsc} \end{figure} \vskip 20pt
+			\vspace*{\fill} \begin{figure}[H] \centering \includegraphics[width=0.15\textwidth]{ufsc} \end{figure} \vskip 20pt
 			{\Huge Projeto Final --- Catherine}\\	
 			{\Large Data Warehouse --- INE5643}
 			\vspace*{\fill}
@@ -68,7 +69,7 @@
 	\indent Para enriquecer a base de dados já existente, será usado um levantamento de dados estatístico-educacionais disponibilizado pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). Desse levantamento geral, serão utilizados os dados referentes às instituições de ensino por cidade de Santa Catarina. Estes dados serão úteis para saber onde há regiões onde os estudantes não prestaram vestibular para a UFSC, além de ter dados sobre quantos estudantes se formam e quantos efetivamente prestam vestibular.
 
 	\section{Materiais}
-	\indent Os dados de candidatos que prestaram vestibular foram disponibilizados pela Comissão Permanente do Vestibular (COPERVE), que é a responsável por realizar o concurso vestibular para ingresso na UFSC. Para preservar a identidade e zelar pela privacidade dos indivíduos cujas informações estão presentes no banco de dados, não há meios de identificação presentes no banco, como nome, registro de identidade ou carteira de pessoa física.\\
+	\indent Os dados de candidatos que prestaram vestibular foram disponibilizados pela Comissão Permanente do Vestibular (Coperve), que é a responsável por realizar o concurso vestibular para ingresso na UFSC. Para preservar a identidade e zelar pela privacidade dos indivíduos cujas informações estão presentes no banco de dados, não há meios de identificação presentes no banco, como nome, registro de identidade ou carteira de pessoa física.\\
 	\indent No caso deste trabalho, serão utilizados os dados coletados dos vestibulares da UFSC para os anos de 2008 a 2012. Estes dados estão disponíveis em formato .sql, que é um \emph{dump} do banco de dados \textsc{MySQL}.\\
 	\indent Além do Banco de Dados, está disponível o modelo Entidade Relacionamento e uma documentação on-line com mais detalhes do banco, que facilitam o entendimento do mesmo.
 
@@ -117,14 +118,12 @@
 	\newpage
 	\subsubsection{Modelo}
 	\indent O modelo dimensional é apresentado abaixo:
-	\begin{figure}[h!]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{../db/catherine}
 		\footnotesize{\vskip 10pt Diagrama gerado utilizando a ferramenta \textsc{MySQL Workbench}.}
 	\end{figure}
-
-	\subsection{Projeto Físico}
-	\indent O projeto físico foi desenvolvido utilizando a ferramenta de gerenciamento de bancos de dados \textsc{MySQL}, onde estão armazenados os dados do \emph{Data Mart}. O modelo dimensional foi gerado com a ferramenta \textsc{MySQL Workbench}. Quanto à padronização do modelo físico, foram adotados os seguintes padrões:
+\subsection{Projeto Físico} \indent O projeto físico foi desenvolvido utilizando a ferramenta de gerenciamento de bancos de dados \textsc{MySQL}, onde estão armazenados os dados do \emph{Data Mart}. O modelo dimensional foi gerado com a ferramenta \textsc{MySQL Workbench}. Quanto à padronização do modelo físico, foram adotados os seguintes padrões:
 	\begin{itemize}
 		\item Os nomes das tabelas e campos contém apenas letras minúsculas.
 		\item Tabelas e campos com mais de uma palavra, devem usar \lq\_\rq para dividir as palavras.
@@ -135,10 +134,53 @@
 	\indent O projeto da àrea de transição foi realizado utilizando a ferramenta Pentaho Data Integration (Kettle). Esta ferramenta utiliza-se dos seguintes conceitos principais: transformations e jobs.\\
 	\indent As transformations são um conjunto de steps que são as atividades relacionadas a integração de dados, como: carregamento de dados de uma tabela, operações com strings, filtros de valores, etc. Na transformation os \emph{steps} são executados em paralelo. Os jobs servem para estabelecer um fluxo na execução das transformations de maneira serial.\\
 	\indent Neste trabalho a geração de cada fato e cada dimensão foi separada em transformations e a ordem de execução das transformations em jobs.
-	\subsubsection{Preparação da Base de Dados}
-	
 	\subsubsection{Área de Transição}
-	TODO
+	\indent A primeira base de dados a ser gerada foi a da dimensão {\bf Curso}. Esta base tem geração simples, e é apenas necessário informações das tabelas centro e curso do modelo relacional. Abaixo segue a \emph{transformation} da dimensão Curso:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{dim_curso}
+		\footnotesize{\vskip 10pt  \emph{Transformation} da dimensão Curso.}
+	\end{figure}
+	Os passos ilustrados acima são:
+	\begin{itemize}
+		\item Entrada de dados: dois fluxos, um coletando informações referente ao curso e outro referente ao centro.
+		\item União dos dados: \emph{join} dos dois fluxos anteriores.
+		\item Filtragem de duplicados: filtra tuplas com informações duplicadas, gerando o \emph{output} {\bf dim\_curso}.
+	\end{itemize}
+	\indent A seguir, foi gerada a dimensão {\bf Local}. Além de utilizar as tabelas Cidade e Unidade Federativa do modelo relacional, foram acrescentadas todas as outras cidades que, por ventura, não estejam contidas no banco de dados da Coperve. A \emph{transformation} para a dimensão Local segue abaixo:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{dim_local}
+		\footnotesize{\vskip 10pt  \emph{Transformation} da dimensão Local.}
+	\end{figure}
+	\indent Procedimento de criação da dimensão Local:
+	\begin{itemize}
+		\item Existem três fluxos de importação de dados: dois fluxos provenientes do banco de dados disponibilizado pela Coperve, e outro com dados retirados do governo, que contém nomes das cidades brasileiras. 
+		\item Os dados provenientes do banco de dados da Coperve são selecionados e sofrem uma união (join cidade uf) e, após retirar dados duplicados (remove coluna extra), são ordenados (Sort rows).
+		\item Então as duas fontes de dados são unidas (une tuplas bases), e os dados duplicados são removidos (filtra duplicados).
+		\item Ao final do processo, gera-se o \emph{output} {\bf dim\_local}.
+	\end{itemize}
+
+	\indent A dimensão {\bf Tempo} foi gerada utilizando \emph{bash script}, por questão de eficiência. Esta dimensão contém datas de 01 de janeiro de 2000, até 01 de janeiro de 2021. Os dados estão dividos entre dia, mês e ano (valores numéricos) e mês e dia da semana (texto).
+	\begin{itemize}
+		\item Colocar passos/bash aqui.
+	\end{itemize}
+
+	\indent Para a criação do fato {\bf Censo}, além de utilizar os dados do modelo relacional disponibilizado pela Coperve, faz uso de dados provenientes do censo escolar disponibilizado pelo INEP, que indicam a quantidade de estudantes, por cidade, que finalizaram o ensino médio (escolas públicas e privadas). Para tal, como ilustrado na \emph{transformation}, existem dois fluxos principais de entrata de dados.
+	\begin{figure}[H]
+		\centering
+		%\includegraphics[width=0.8\textwidth]{fato_censo}
+		\footnotesize{\vskip 10pt  \emph{Transformation} do fato Censo.}
+	\end{figure}
+
+	\indent O fato {\bf Vagas} é gerado utilizando apenas os dados disponibilizados pela Coperve. Segue a \emph{transformation}:
+	\begin{figure}[H]
+		\centering
+		%\includegraphics[width=0.8\textwidth]{fato_vagas}
+		\footnotesize{\vskip 10pt  \emph{Transformation} do fato Vagas.}
+	\end{figure}
+
+	\indent TODO: Jobs: 1-Deploy Dimensões; 2-Deploy Fatos; 3-Deploy geral.
 
 	\section{Resultados}
 	TODO
